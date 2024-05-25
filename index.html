@@ -11,19 +11,31 @@
         <div class="container">
             <h1>Plateforme de conseils et d'astuces</h1>
             <nav>
-                <img src=https://static.vecteezy.com/ti/vecteur-libre/p3/5556111-ampoule-icone-vecteur-idee-signe-solution-pensee-concept-couleur-jaune-modele-gratuit-vectoriel.jpg alt="Logo" class="logo">
+                <img src="https://static.vecteezy.com/ti/vecteur-libre/p3/5556111-ampoule-icone-vecteur-idee-signe-solution-pensee-concept-couleur-jaune-modele-gratuit-vectoriel.jpg" alt="Logo" class="logo">
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="conseils.html">Conseils</a></li>
+                    <li><a href="conseils.php">Conseils</a></li>
                     <li><a href="soumission.html">Soumettre un conseil</a></li>
                     <li><a href="connexion.html">Connexion</a></li>
-                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="profil.php">Profil</a></li>
                 </ul>
             </nav>
+            <!-- Formulaire de recherche -->
+            <form action="recherche.php" method="get" class="search-form">
+                <input type="text" name="q" placeholder="Rechercher par mot-clé">
+                <select name="category">
+                    <option value="">Toutes catégories</option>
+                    <option value="maison">Maison</option>
+                    <option value="sante">Santé</option>
+                    <option value="cuisine">Cuisine</option>
+                </select>
+                <button type="submit">Rechercher</button>
+            </form>
         </div>
     </header>
     <main>
-        
+        <!-- Contenu principal de la page -->
+        <!-- ... -->
         <section class="hero">
             <div class="container">
                 <h2>Bienvenue sur notre plateforme de conseils et d'astuces</h2>
