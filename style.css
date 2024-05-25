@@ -1,0 +1,132 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #41bead; /* Rose */
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    color: #333; /* Noir */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #a22d06; /* Bleu */
+    color: #fff; /* Blanc */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Styles spécifiques à la page d'accueil */
+.populaires {
+    margin-bottom: 30px;
+}
+
+.populaires h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #6966ff; /* Rose foncé */
+}
+
+.recentes {
+    margin-bottom: 30px;
+}
+
+.recentes h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #e63d05; /* Bleu clair */
+}
+
+/* Styles spécifiques à la page des conseils */
+.liste-conseils {
+    margin-bottom: 30px;
+}
+
+.liste-conseils h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #6966ff; /* Rose foncé */
+}
+.logo {
+    position: absolute;
+    top: 0px; /* Ajustez cette valeur selon votre espacement souhaité depuis le haut */
+    right: 0px; /* Ajustez cette valeur selon votre espacement souhaité depuis la droite */
+    max-width: 130px; /* Largeur maximale du logo */
+    height: auto; /* Ajuste automatiquement la hauteur pour maintenir les proportions */
+    /* Autres styles si nécessaire */
+}
+.large-input {
+    width: 40%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.large-button {
+    padding: 10px 20px;
+    background-color: #6966ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.large-button:hover {
+    background-color: #6966ff;
+}
+/* Styles pour la barre de recherche */
+.recherche-conseils {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.search-input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-button:hover {
+    background-color: #45a049;
+}
