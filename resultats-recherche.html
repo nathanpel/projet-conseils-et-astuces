@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de recherche</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Résultats de recherche</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="conseils.html">Conseils</a></li>
+                    <li><a href="soumission.html">Soumettre un conseil</a></li>
+                </ul>
+            </nav>
+            <img src="https://static.vecteezy.com/ti/vecteur-libre/p3/5556111-ampoule-icone-vecteur-idee-signe-solution-pensee-concept-couleur-jaune-modele-gratuit-vectoriel.jpg" alt="Logo" class="logo">
+        </div>
+    </header>
+    <main>
+        <section class="resultats-recherche">
+            <div class="container">
+                <h2>Résultats pour "<?php echo $query; ?>"</h2>
+                <?php if (!empty($resultats)): ?>
+                    <ul>
+                        <?php foreach ($resultats as $resultat): ?>
+                            <li><?php echo $resultat; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else: ?>
+                    <p>Aucun résultat trouvé pour "<?php echo $query; ?>"</p>
+                <?php endif; ?>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Plateforme de conseils et d'astuces - Tous droits réservés</p>
+        </div>
+    </footer>
+</body>
+</html>
