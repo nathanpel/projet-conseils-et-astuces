@@ -140,11 +140,15 @@ $cuisineConseils = getConseilsByCategory('cuisine');
                             ?>
                                 <p><?php echo htmlspecialchars($commentaire[1]); ?> - <strong><?php echo htmlspecialchars($commentaire[2]); ?></strong></p>
                             <?php endforeach; ?>
-                            <form action="commentaire.php" method="post">
-                                <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
-                                <textarea name="comment" placeholder="Laisser un commentaire"></textarea>
-                                <button type="submit">Commenter</button>
-                            </form>
+                            <?php if (isset($_SESSION['username'])): ?>
+                                <form action="commentaire.php" method="post">
+                                    <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
+                                    <textarea name="comment" placeholder="Laisser un commentaire"></textarea>
+                                    <button type="submit">Commenter</button>
+                                </form>
+                            <?php else: ?>
+                                <p><a href="connexion.html">Connectez-vous</a> pour laisser un commentaire.</p>
+                            <?php endif; ?>
                         </div>
                     </li>
                 <?php endforeach; ?>
@@ -202,11 +206,15 @@ $cuisineConseils = getConseilsByCategory('cuisine');
                             ?>
                                 <p><?php echo htmlspecialchars($commentaire[1]); ?> - <strong><?php echo htmlspecialchars($commentaire[2]); ?></strong></p>
                             <?php endforeach; ?>
-                            <form action="commentaire.php" method="post">
-                                <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
-                                <textarea name="comment" placeholder="Laisser un commentaire"></textarea>
-                                <button type="submit">Commenter</button>
-                            </form>
+                            <?php if (isset($_SESSION['username'])): ?>
+                                <form action="commentaire.php" method="post">
+                                    <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
+                                    <textarea name="comment" placeholder="Laisser un commentaire"></textarea>
+                                    <button type="submit">Commenter</button>
+                                </form>
+                            <?php else: ?>
+                                <p><a href="connexion.html">Connectez-vous</a> pour laisser un commentaire.</p>
+                            <?php endif; ?>
                         </div>
                     </li>
                 <?php endforeach; ?>
@@ -264,11 +272,15 @@ $cuisineConseils = getConseilsByCategory('cuisine');
                             ?>
                                 <p><?php echo htmlspecialchars($commentaire[1]); ?> - <strong><?php echo htmlspecialchars($commentaire[2]); ?></strong></p>
                             <?php endforeach; ?>
-                            <form action="commentaire.php" method="post">
-                                <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
-                                <textarea name="comment" placeholder="Laisser un commentaire"></textarea>
-                                <button type="submit">Commenter</button>
-                            </form>
+                            <?php if (isset($_SESSION['username'])): ?>
+                                <form action="commentaire.php" method="post">
+                                    <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
+                                    <textarea name="comment" placeholder="Laisser un commentaire"></textarea>
+                                    <button type="submit">Commenter</button>
+                                </form>
+                            <?php else: ?>
+                                <p><a href="connexion.html">Connectez-vous</a> pour laisser un commentaire.</p>
+                            <?php endif; ?>
                         </div>
                     </li>
                 <?php endforeach; ?>
