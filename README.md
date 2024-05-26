@@ -19,32 +19,29 @@ mise_a_jour_profil.php : Permet aux utilisateurs connectés de mettre à jour le
 modifier_conseil.php : Permet à un utilisateur connecté de modifier les détails d'un conseil spécifique sur la plateforme, en récupérant et en affichant le conseil existant dans un formulaire pré-rempli et en permettant à l'utilisateur de soumettre des modifications.
 
 profil.php : Affiche la page de profil d'un utilisateur avec ses informations personnelles et les conseils qu'il a soumis, en offrant des fonctionnalités de mise à jour du profil et de déconnexion.
-Ce script est chargé de traiter les données soumises via un formulaire de soumission de conseils. Voici un aperçu de son fonctionnement :
+Ce script est chargé de traiter les données soumises via un formulaire de soumission de conseils. 
+recherche.php : Gère la fonction de recherche sur la plateforme en permettant aux utilisateurs d'entrer un mot-clé pour trouver des conseils pertinents. Ce script charge les conseils à partir d'un fichier CSV, filtre les résultats pour trouver ceux correspondant au mot-clé entré par l'utilisateur, puis affiche les résultats dans une page HTML structurée.
 
-Session Handling: Le script démarre une session PHP pour gérer les sessions utilisateur.
-Vérification de l'Authentification: Il vérifie si l'utilisateur est authentifié en vérifiant la présence de la clé 'username' dans la session. Si l'utilisateur n'est pas authentifié, il est redirigé vers la page de connexion.
+resultat-recherche.html : Affiche les résultats de la recherche avec une mise en page claire et organisée, permettant aux utilisateurs de visualiser facilement les conseils correspondant à leur recherche.
 
-Suppression d'un Conseil: Le script récupère l'identifiant d'un conseil à supprimer à partir des données POST. Ensuite, il ouvre le fichier 'conseils.csv' et crée un nouveau fichier temporaire pour stocker les conseils à conserver. Il parcourt ensuite chaque ligne du fichier CSV d'origine, et s'il trouve une correspondance avec l'identifiant du conseil à supprimer, il ne copie pas cette ligne dans le fichier temporaire. Enfin, il renomme le fichier temporaire pour écraser le fichier CSV d'origine.
+soumission.html : Structure une page de soumission de conseils avec un formulaire permettant aux utilisateurs de proposer de nouveaux conseils à ajouter à la plateforme. Cette page offre une interface conviviale pour collecter les informations nécessaires sur les nouveaux conseils.
 
-Redirection: Une fois que la suppression est effectuée, l'utilisateur est redirigé vers la page 'conseils.php'.
+style.css : Fournit les règles de style CSS pour mettre en forme et styliser les éléments HTML des différentes pages de la plateforme, garantissant une présentation cohérente et attrayante pour les utilisateurs.
 
-Ce fichier CSS contient les styles utilisés pour mettre en forme les différentes pages de l'application. Voici un résumé de ses fonctionnalités :
+supprimer_conseil.php : Permet aux utilisateurs connectés de supprimer un conseil spécifique qu'ils ont soumis sur la plateforme, en traitant les données soumises via un formulaire de suppression et en supprimant les informations correspondantes du fichier CSV des conseils.
 
-Styles Généraux: Il définit les styles de base pour le corps, l'en-tête, la navigation, le contenu principal et le pied de page.
-Styles Spécifiques: Il contient des styles spécifiques pour la page d'accueil, la page des conseils, ainsi que la barre de recherche.
-Classes Réutilisables: Il définit des classes réutilisables pour les grands boutons, les grands champs de saisie, etc.
-Positionnement: Il contient des styles pour positionner le logo de l'application de manière absolue dans l'en-tête.
+traitement-connexion.php : Gère le processus de connexion des utilisateurs à la plateforme en vérifiant les informations d'identification soumises via un formulaire de connexion, en créant et en maintenant une session utilisateur active, et en redirigeant vers la page appropriée après la connexion.
 
-Cette page HTML est destinée à permettre aux utilisateurs de soumettre de nouveaux conseils. Voici un aperçu de son contenu :
+traitement-inscription.php : Gère le processus d'inscription des utilisateurs sur la plateforme en vérifiant les informations fournies via un formulaire d'inscription, en créant un nouveau compte utilisateur et en redirigeant vers la page de connexion une fois l'inscription réussie.
 
-En-tête: L'en-tête contient le titre de la page et la navigation vers d'autres pages de l'application.
-Formulaire de Soumission: Un formulaire est fourni avec des champs pour le titre, la catégorie, le contenu, une image et une vidéo pour le conseil.
-Footer: Le pied de page affiche le message de droits d'auteur pour l'application.
+traitement_mise_a_jour.php : Traite les données soumises via un formulaire de mise à jour de profil, permettant aux utilisateurs connectés de modifier leurs informations personnelles telles que leur nom d'utilisateur, leur email et leur mot de passe.
 
-Ce script PHP est responsable de la recherche de conseils en fonction de critères spécifiques. Voici un aperçu de son fonctionnement :
+traitement-soumission.php : Traite les données soumises via un formulaire de soumission de conseils, permettant aux utilisateurs de proposer de nouveaux conseils à ajouter à la plateforme en enregistrant les informations dans un fichier CSV dédié.
 
-Fonction de Recherche: Il contient une fonction searchConseils qui parcourt le fichier CSV contenant les conseils et retourne les résultats correspondant aux critères de recherche fournis.
-Récupération des Critères de Recherche: Les critères de recherche (mot-clé et catégorie) sont récupérés à partir des paramètres GET.
-Affichage des Résultats: Les résultats de la recherche sont affichés sous forme de listes, avec des détails tels que le titre, la catégorie, le contenu, le nom de l'utilisateur, et éventuellement une image ou une vidéo du conseil.
-Gestion des resultats vides: Si aucun résultat n'est trouvé pour les critères de recherche donnés, un message approprié est affiché.
+traiter_modification.php : Traite les données soumises via un formulaire de modification de conseils, permettant aux utilisateurs connectés de modifier les détails d'un conseil spécifique sur la plateforme en mettant à jour les informations correspondantes dans le fichier CSV des conseils.
+
+
+
+
+
 
