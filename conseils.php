@@ -8,7 +8,6 @@ function getConseilsByCategory($category) {
     if (file_exists($file)) {
         if (($handle = fopen($file, 'r')) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
-                // S'assurer que les indices nécessaires existent dans $data
                 if (isset($data[1]) && $data[1] == $category) {
                     $conseils[] = $data;
                 }
@@ -18,6 +17,44 @@ function getConseilsByCategory($category) {
     }
 
     return $conseils;
+}
+
+function getCommentaires($conseilId) {
+    $file = 'commentaires.csv';
+    $commentaires = [];
+
+    if (file_exists($file)) {
+        if (($handle = fopen($file, 'r')) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+                if ($data[0] == $conseilId) {
+                    $commentaires[] = $data;
+                }
+            }
+            fclose($handle);
+        }
+    }
+
+    return $commentaires;
+}
+
+function getAverageRating($conseilId) {
+    $file = 'notes.csv';
+    $total = 0;
+    $count = 0;
+
+    if (file_exists($file)) {
+        if (($handle = fopen($file, 'r')) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+                if ($data[0] == $conseilId) {
+                    $total += $data[1];
+                    $count++;
+                }
+            }
+            fclose($handle);
+        }
+    }
+
+    return $count ? $total / $count : 0;
 }
 
 $maisonConseils = getConseilsByCategory('maison');
@@ -79,6 +116,36 @@ $cuisineConseils = getConseilsByCategory('cuisine');
                                 <button type="submit">Supprimer</button>
                             </form>
                         <?php endif; ?>
+
+                        <div class="rating">
+                            <form action="noter.php" method="post">
+                                <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
+                                <label for="rating">Note :</label>
+                                <select name="rating" id="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <button type="submit">Noter</button>
+                            </form>
+                            <span>Note moyenne: <?php echo number_format(getAverageRating($conseil[0]), 2); ?> / 5</span>
+                        </div>
+                        <div class="comments">
+                            <h4>Commentaires :</h4>
+                            <?php
+                            $commentaires = getCommentaires($conseil[0]);
+                            foreach ($commentaires as $commentaire):
+                            ?>
+                                <p><?php echo htmlspecialchars($commentaire[1]); ?> - <strong><?php echo htmlspecialchars($commentaire[2]); ?></strong></p>
+                            <?php endforeach; ?>
+                            <form action="commentaire.php" method="post">
+                                <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
+                                <textarea name="comment" placeholder="Laisser un commentaire"></textarea>
+                                <button type="submit">Commenter</button>
+                            </form>
+                        </div>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -111,6 +178,36 @@ $cuisineConseils = getConseilsByCategory('cuisine');
                                 <button type="submit">Supprimer</button>
                             </form>
                         <?php endif; ?>
+
+                        <div class="rating">
+                            <form action="noter.php" method="post">
+                                <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
+                                <label for="rating">Note :</label>
+                                <select name="rating" id="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <button type="submit">Noter</button>
+                            </form>
+                            <span>Note moyenne: <?php echo number_format(getAverageRating($conseil[0]), 2); ?> / 5</span>
+                        </div>
+                        <div class="comments">
+                            <h4>Commentaires :</h4>
+                            <?php
+                            $commentaires = getCommentaires($conseil[0]);
+                            foreach ($commentaires as $commentaire):
+                            ?>
+                                <p><?php echo htmlspecialchars($commentaire[1]); ?> - <strong><?php echo htmlspecialchars($commentaire[2]); ?></strong></p>
+                            <?php endforeach; ?>
+                            <form action="commentaire.php" method="post">
+                                <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
+                                <textarea name="comment" placeholder="Laisser un commentaire"></textarea>
+                                <button type="submit">Commenter</button>
+                            </form>
+                        </div>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -143,6 +240,36 @@ $cuisineConseils = getConseilsByCategory('cuisine');
                                 <button type="submit">Supprimer</button>
                             </form>
                         <?php endif; ?>
+
+                        <div class="rating">
+                            <form action="noter.php" method="post">
+                                <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
+                                <label for="rating">Note :</label>
+                                <select name="rating" id="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <button type="submit">Noter</button>
+                            </form>
+                            <span>Note moyenne: <?php echo number_format(getAverageRating($conseil[0]), 2); ?> / 5</span>
+                        </div>
+                        <div class="comments">
+                            <h4>Commentaires :</h4>
+                            <?php
+                            $commentaires = getCommentaires($conseil[0]);
+                            foreach ($commentaires as $commentaire):
+                            ?>
+                                <p><?php echo htmlspecialchars($commentaire[1]); ?> - <strong><?php echo htmlspecialchars($commentaire[2]); ?></strong></p>
+                            <?php endforeach; ?>
+                            <form action="commentaire.php" method="post">
+                                <input type="hidden" name="conseil_id" value="<?php echo htmlspecialchars($conseil[0]); ?>">
+                                <textarea name="comment" placeholder="Laisser un commentaire"></textarea>
+                                <button type="submit">Commenter</button>
+                            </form>
+                        </div>
                     </li>
                 <?php endforeach; ?>
             </ul>
